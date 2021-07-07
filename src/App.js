@@ -1,8 +1,10 @@
 import { Component } from "react";
+import Container from "./components/Container";
 import ContactList from "./components/ContactList";
 import ContactForm from "./components/ContactForm";
 import Filter from "./components/Filter";
 import initialContacts from "./components/ContactList/contacts.json";
+import s from "./App.module.css";
 
 class App extends Component {
   state = {
@@ -50,20 +52,20 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <div>
-          <h1>Phonebook</h1>
+      <Container>
+        <div className="container">
+          <h1 className={s.phonebook}>Phonebook</h1>
           <ContactForm onSubmit={this.addContact} />
         </div>
         <div>
-          <h2>Contacts</h2>
+          <h2 className={s.phonebook}>Contacts</h2>
           <Filter value={this.state.filter} onChange={this.handleChange} />
           <ContactList
             findContact={this.findContact}
             onDeleteContact={this.deleteContact}
           />
         </div>
-      </>
+      </Container>
     );
   }
 }

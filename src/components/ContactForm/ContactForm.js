@@ -1,5 +1,6 @@
 import { Component } from "react";
 import shortId from "shortid";
+import s from "./ContactForm.module.css";
 
 class ContactForm extends Component {
   state = { name: "", number: "" };
@@ -33,9 +34,10 @@ class ContactForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.id}>
+        <label htmlFor={this.id} className={s.contactFormLabel}>
           Name
           <input
+            className={s.contactFromInput}
             type="text"
             name="name"
             value={this.state.name}
@@ -46,9 +48,10 @@ class ContactForm extends Component {
             required
           />
         </label>
-        <label>
+        <label className={s.contactFormLabel}>
           Number
           <input
+            className={s.contactFromInput}
             type="tel"
             name="number"
             value={this.state.number}
@@ -58,7 +61,9 @@ class ContactForm extends Component {
             required
           />
         </label>
-        <button type="submit">Add contact</button>)
+        <button className={s.formButton} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

@@ -1,8 +1,14 @@
+import s from "./ContactItem.module.css";
+
 const ContactItem = ({ name, number, id, onDeleteContact }) => {
   return (
-    <li>
+    <li className={s.contactItem}>
       {name}:{number}
-      <button type="submit" onClick={() => onDeleteContact(id)}>
+      <button
+        className={s.contactButton}
+        type="submit"
+        onClick={() => onDeleteContact(id)}
+      >
         Delete contact
       </button>
     </li>
